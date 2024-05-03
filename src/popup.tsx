@@ -102,6 +102,7 @@ const Popup = () => {
     <>
       {currentHostname ? (
         <div className="container">
+          <img src="logo.png" alt="logo credit to @sawaratsuki1004" />
           <h1 className="title">(uwu) Everywhere</h1>
           <p className="info">
             Total loaded domains: <span id="info">{totalDomains}</span>
