@@ -41,4 +41,4 @@ jobs:
           asset_path: ${{ github.workspace }}/extension.crx
           asset_name: extension.crx
           asset_content_type: application/x-chrome-extension
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.REPO_TOKEN }}
