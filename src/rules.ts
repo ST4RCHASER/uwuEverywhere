@@ -21,7 +21,6 @@ export const makeRedirectRule = (uwuConfig?: uwuConfig) => {
           let id = 150000;
           for (const key of keys) {
             //If this is a blacklisted domain, skip
-            console.log("AAA", config.blackListDomains, key);
             if (
               config.blackListDomains.findIndex((domain) =>
                 new RegExp(key).test(domain),
