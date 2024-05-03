@@ -40,5 +40,5 @@ jobs:
         with:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path: ${{ github.workspace }}/extension.crx
-          asset_name: extension.crx
+          asset_name: uwuEverywhere-${{ github.event.release.tag_name }}.crx
           asset_content_type: application/x-chrome-extension
