@@ -1,4 +1,4 @@
-name: Pack Chrome Extension and Add to Release
+name: Pack to release
 
 on:
   release:
