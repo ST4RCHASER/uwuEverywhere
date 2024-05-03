@@ -1,0 +1,21 @@
+{
+    "angular.io": {
+        "name": "Angular.io",
+        "replaceImageUrl": [{
+          "replace": "https://angular.io/assets/images/logos/angular/angular.svg",
+          "with": "https://github.com/jonacruz89/SAWARATSUKI.ServiceLogos/blob/main/Angular/Angular.png?raw=true"
+      }],
+        "customCss": "section#intro .hero-logo {background-image: url(\"https://github.com/jonacruz89/SAWARATSUKI.ServiceLogos/blob/main/Angular/Angular.png?raw=true\");}"
+    },
+    "react.dev": {
+      "name": "React.dev",
+      "customCss": ".uwu-visible { display: flex } .uwu-hidden { display: none }"
+  },
+    "(.*).haskell.org": {
+        "name": "Haskell",
+        "replaceImageUrl": [{
+          "replace": "https://www.haskell.org/img/haskell-logo.svg",
+          "with": "https://github.com/jonacruz89/SAWARATSUKI.ServiceLogos/blob/main/Haskell/Haskell.png?raw=true"
+      }]
+      }
+}
