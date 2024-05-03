@@ -13,21 +13,19 @@ const doChangeScript = () => {
           return new RegExp(logo).test(currentDomain);
         });
         if (currentDomainLogo) {
-          const { customCss } = logos[currentDomainLogo];
-          if (customCss) {
+          const { css } = logos[currentDomainLogo];
+          if (css) {
             //As regex support http and https endwith css
-            const isUrl = new RegExp(/(http|https):\/\/[^ "]+\.css$/).test(
-              customCss,
-            );
+            const isUrl = new RegExp(/(http|https):\/\/[^ "]+\.css$/).test(css);
             if (isUrl) {
               const style = document.createElement("link");
               style.rel = "stylesheet";
-              style.href = customCss;
+              style.href = css;
               document.head.appendChild(style);
               return;
             }
             const style = document.createElement("style");
-            style.innerHTML = customCss;
+            style.innerHTML = css;
             document.head.appendChild(style);
           }
         }

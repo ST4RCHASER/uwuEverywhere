@@ -12,7 +12,7 @@ export type uwuResponse = uwuConfig & {
 export type uwuLogoNodes = {
   [key: string]: {
     name: string;
-    customCss?: string;
+    css?: string;
     replaceImageUrl?: [
       {
         replace: string;
