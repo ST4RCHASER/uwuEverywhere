@@ -1,5 +1,5 @@
 import { makeRedirectRule } from "./rules";
-import { uwuLogoNodes } from "./types";
+import { uwuConfig, uwuLogoNodes } from "./types";
 
 const setDefaultConfig = () => {
   chrome.storage.local.get("uwuConfig", (data) => {
@@ -74,7 +74,7 @@ chrome.management.onEnabled.addListener(() => {
 });
 
 // Request edit
-const updateDynamicRules = async () => {
+export const updateInterceptor = async (config?: uwuConfig) => {
   chrome.declarativeNetRequest.updateDynamicRules({
     removeRuleIds: await chrome.declarativeNetRequest
       .getDynamicRules()
@@ -89,8 +89,7 @@ const updateDynamicRules = async () => {
           )
           .map((rule) => rule.id),
       ),
-    addRules: await makeRedirectRule(),
+    addRules: await makeRedirectRule(config),
   });
 };
-
-updateDynamicRules().then(() => console.log("DynamicRules Updated!"));
+updateInterceptor();

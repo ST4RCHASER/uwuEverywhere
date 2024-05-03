@@ -1,15 +1,15 @@
 import { uwuConfig, uwuLogoNodes } from "./types";
 
-export const makeRedirectRule = () => {
+export const makeRedirectRule = (uwuConfig?: uwuConfig) => {
   const rules: chrome.declarativeNetRequest.Rule[] = [];
   return new Promise<chrome.declarativeNetRequest.Rule[]>((resolve) => {
     try {
       chrome.storage.local.get("uwuConfig", function (data) {
-        const config = data.uwuConfig as uwuConfig;
+        const config = uwuConfig || (data.uwuConfig as uwuConfig);
         const isGlobalEnabled =
           typeof config === "undefined" ||
-          typeof config.globalEnabled === "undefined" ||
-          config === null
+          config === null ||
+          typeof config.globalEnabled === "undefined"
             ? true
             : config.globalEnabled;
         if (!isGlobalEnabled) {
@@ -21,7 +21,13 @@ export const makeRedirectRule = () => {
           let id = 150000;
           for (const key of keys) {
             //If this is a blacklisted domain, skip
-            if (config.blackListDomains.includes(key)) continue;
+            console.log("AAA", config.blackListDomains, key);
+            if (
+              config.blackListDomains.findIndex((domain) =>
+                new RegExp(key).test(domain),
+              ) !== -1
+            )
+              continue;
             const logo = logos[key];
             for (const replaceImageUrl of logo.replaceImageUrl || []) {
               rules.push({
