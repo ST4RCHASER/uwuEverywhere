@@ -28,9 +28,10 @@ export const makeRedirectRule = (uwuConfig?: uwuConfig) => {
             )
               continue;
             const logo = logos[key];
+            const flags = (logo.flags || "").split(",");
             for (const replaceImageUrl of logo.replaceImageUrl || []) {
               rules.push({
-                id: id++,
+                id: ++id,
                 priority: 1,
                 action: {
                   type: chrome.declarativeNetRequest.RuleActionType.REDIRECT,
@@ -47,8 +48,55 @@ export const makeRedirectRule = (uwuConfig?: uwuConfig) => {
                 },
               });
             }
-            console.log("[uwuEverywhere] Rule created for:", rules);
+            if (logo.overrideCSP) {
+              rules.push({
+                id: ++id,
+                priority: 1,
+                action: {
+                  type: chrome.declarativeNetRequest.RuleActionType
+                    .MODIFY_HEADERS,
+                  responseHeaders: [
+                    {
+                      header: "Content-Security-Policy",
+                      operation:
+                        chrome.declarativeNetRequest.HeaderOperation.SET,
+                      value: logo.overrideCSP,
+                    },
+                  ],
+                },
+                condition: {
+                  urlFilter: `*${key.replace("(.*)", "")}/*`,
+                  resourceTypes: Object.values(
+                    chrome.declarativeNetRequest.ResourceType,
+                  ),
+                },
+              });
+            }
+            if (flags.includes("remove-csp")) {
+              rules.push({
+                id: ++id,
+                priority: 1,
+                action: {
+                  type: chrome.declarativeNetRequest.RuleActionType
+                    .MODIFY_HEADERS,
+                  responseHeaders: [
+                    {
+                      header: "Content-Security-Policy",
+                      operation:
+                        chrome.declarativeNetRequest.HeaderOperation.REMOVE,
+                    },
+                  ],
+                },
+                condition: {
+                  urlFilter: `*${key.replace("(.*)", "")}/*`,
+                  resourceTypes: Object.values(
+                    chrome.declarativeNetRequest.ResourceType,
+                  ),
+                },
+              });
+            }
           }
+          console.log("[uwuEverywhere] Rule created for:", rules);
           resolve(rules);
         });
       });

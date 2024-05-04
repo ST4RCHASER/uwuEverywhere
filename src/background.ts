@@ -83,8 +83,10 @@ export const updateInterceptor = async (config?: uwuConfig) => {
           .filter(
             (rule) =>
               rule.priority === 1 &&
-              rule.action.type ===
-                chrome.declarativeNetRequest.RuleActionType.REDIRECT &&
+              (rule.action.type ===
+                chrome.declarativeNetRequest.RuleActionType.REDIRECT ||
+                rule.action.type ===
+                  chrome.declarativeNetRequest.RuleActionType.MODIFY_HEADERS) &&
               rule.id >= 150000,
           )
           .map((rule) => rule.id),
