@@ -70,5 +70,4 @@ document.addEventListener("DOMContentLoaded", doChangeScript);
 document.addEventListener("load", doChangeScript);
 document.addEventListener("readystatechange", doChangeScript);
 setTimeout(doChangeScript, 1000);
-// On load, set the background color to the saved value
 doChangeScript();
