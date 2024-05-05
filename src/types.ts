@@ -13,8 +13,7 @@ export type uwuLogoNodes = {
   [key: string]: {
     name: string;
     css?: string;
-    flags?: string;
-    overrideCSP?: string;
+    js?: string;
     replaceImageUrl?: [
       {
         replace: string;

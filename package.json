@@ -16,9 +16,9 @@
     "url": "https://github.com/ST4RCHASER/uwuEverywhere.git"
   },
   "engines": {
-		"node": ">=18.0.0 <= 20.x",
-		"pnpm": ">=8 <= 8.15.7"
-	},
+    "node": ">=18.0.0 <= 20.x",
+    "pnpm": ">=8 <= 8.15.7"
+  },
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1"

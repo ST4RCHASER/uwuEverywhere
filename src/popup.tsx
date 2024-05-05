@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { uwuConfig, uwuLogoNodes } from "./types";
-import { updateInterceptor } from "./background";
 const Popup = () => {
   const [version, setVersion] = useState<string>();
   const [logosUpdatedAt, setLogoUpdatedAt] = useState<string>();
@@ -62,13 +61,6 @@ const Popup = () => {
             setGlobalEnabled(enable);
             if (currentHostname) {
               setIsThisSiteIsBlackListed(domains.includes(currentHostname));
-            }
-            if (logosUpdatedAt) {
-              updateInterceptor({
-                globalEnabled: enable,
-                blackListDomains: domains,
-                logosUpdatedAt,
-              });
             }
             if (reload) {
               return chrome.tabs.reload(tab.id);

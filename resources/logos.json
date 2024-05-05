@@ -1,38 +1,83 @@
 {
-    "angular.io":{
-       "name":"Angular.io",
+    "^https?://(?:.*.)?(angular.io)(/.*)?$":{
+       "name":"AngularJS",
        "css":"section#intro .hero-logo {background-image: url(\"https://github.com/jonacruz89/SAWARATSUKI.ServiceLogos/blob/main/Angular/Angular.png?raw=true\");} mat-toolbar.app-toolbar .nav-link.home img {background-image: url(\"https://github.com/jonacruz89/SAWARATSUKI.ServiceLogos/blob/main/Angular/Angular.png?raw=true\"); padding: 60px 80px 0px 0px; background-size:contain; width:0px; height: 0px; background-repeat: no-repeat; background-position: center;}"
     },
-    "(.*)archlinux.org": {
+    "^https?://(?:.*.)?(archlinux.org)(/.*)?$": {
       "name":"Arch Linux",
-      "flags": "remove-csp",
+      "js": "document.querySelector('meta[http-equiv=Content-Security-Policy\"]').setAttribute('content', document.querySelector('meta[http-equiv=\"Content-Security-Policy\"]').getAttribute('content').replace(\"img-src 'self' data:\", \"img-src 'self' data: https://github.com/jonacruz89/SAWARATSUKI.ServiceLogos/blob/main/ArchLinux/ArchLinux.png\").replace(\"script-src 'self'\", \"script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' 'inline-speculation-rules' http://localhost:* http://127.0.0.1:*\"));",
        "css":"#archnavbarlogo {background-image: url(\"https://github.com/jonacruz89/SAWARATSUKI.ServiceLogos/blob/main/ArchLinux/ArchLinux.png?raw=true\") !important; width: 70px !important; height: 60px !important; background-size:contain !important; background-repeat: no-repeat !important; background-position: center !important; margin-top: -10px !important;}"
     },
-    "(.*).jetbrains.com": {
+    "^https?://(?:.*.)?(jetbrains.com)(/.*)?$": {
       "name":"JetBrains",
-      "flags": "remove-csp",
       "css":".clion-overview-page > .clion-overview-section > .wt-container > img.wt-display-sm-block {color: red; background-image: url(\"https://github.com/jonacruz89/SAWARATSUKI.ServiceLogos/blob/main/Clion/Clion.png?raw=true\"); padding: 150px 85vw 0px 0px; background-size:contain; width:0px; height: 0px; background-repeat: no-repeat; background-position: center;} .wt-section.wt-section_bg_white.wt-section_theme_light.section_bg-transparent.clion-overview-section { background-image: url(\"https://github.com/jonacruz89/SAWARATSUKI.ServiceLogos/blob/main/Clion/Clion.png?raw=true\"); background-size: 1150px,1150px; background-position: top -50px left calc(50% + 568px); }"
     },
-    "(.*).cloudflare.com": {
+    "^https?://(?:.*.)?(cloudflare.com)(/.*)?$": {
       "name":"Cloudflare",
-      "flags": "remove-csp",
       "css":"#loading-state > .message > svg,.c_ba.c_bb.c_bc.c_bd > div > svg {padding: 50px 100px 0px 0px !important;} #loading-state > .message > svg {padding: 80px 160px 0px 0px !important;} .main-header-logo > svg {display: none;} .main-header-logo,#loading-state > .message > svg,.c_ba.c_bb.c_bc.c_bd > div > svg {background-image: url(\"https://github.com/jonacruz89/SAWARATSUKI.ServiceLogos/blob/main/Cloudflare/Cloudflare.png?raw=true\"); padding: 50px 55px 0px 0px; background-size:contain; width:0px; height: 0px; background-repeat: no-repeat; background-position: center;}"
     },
-    "(.*).crowdstrike.com": {
+    "^https?://(?:.*.)?(crowdstrike.com)(/.*)?$": {
       "name":"CrowdStrike",
       "css":"a[title=\"CrowdStrike Logo\"] img {background-image: url(\"https://github.com/jonacruz89/SAWARATSUKI.ServiceLogos/blob/main/Crowdstrike/CroudStrike.png?raw=true\"); padding: 80px 180px 0px 0px; background-size:contain; width:0px; height: 0px; background-repeat: no-repeat; background-position: center; filter: invert(100%);}"
     },
-    "react.dev":{
+    "^https?://?(dotnet.microsoft.com)(/.*)/csharp": {
+      "name": "C#",
+      "css": "#mainContent.container > h1 { width: 100%; height: 300px; background-repeat: no-repeat; background-position: center; background-size: contain; background-clip: unset; -webkit-background-clip: unset; background-image: url(\"https://github.com/jonacruz89/SAWARATSUKI.ServiceLogos/blob/main/C%23/C%23%20Purple.png?raw=true\") }"
+    },
+    "^https?://?(flutter.dev)(/.*)(/.*)?$": {
+      "name": "Flutter",
+      "css": ".logo > a > img { margin-top: 10px; width: 100%; background-repeat: no-repeat; background-position: center; padding: 70px 100px 0px 0px; background-size: contain; width:0px; height: 0px; background-image: url(\"https://github.com/jonacruz89/SAWARATSUKI.ServiceLogos/blob/main/Flutter/FlutterTransparent.png?raw=true\") }"
+    },
+    "^https?://?(github.com)(/.*)(/.*)?$":{
+      "name":"GitHub",
+      "css":".mr-lg-3 > svg.octicon.octicon-mark-github {margin-left: 0 !important; margin-top: 0 !important;} .mr-lg-3 > .octicon.octicon-mark-github > path, .AppHeader-logo > svg > path {display: none;} svg.octicon.octicon-mark-github, .AppHeader-logo > svg {background-image: url(\"https://github.com/jonacruz89/SAWARATSUKI.ServiceLogos/blob/main/Github/Github.png?raw=true\"); margin-top: -5px; padding: 46px 83px 0px 0px; background-size: contain; background-repeat: no-repeat; background-position: center; margin-left: -25px;}"
+   },
+   "^https?://(?:.*.)?(gitlab.com)(/.*)?$":{
+      "name":"GitLab",
+      "css":".logo > svg {padding:80px 85px 0px 0px !important;} .slp-btn.slp-mr-8.slp-btn-icon > svg path {display: none;} .slp-btn.slp-mr-8.slp-btn-icon > svg, .logo > svg {background-image: url(\"https://github.com/jonacruz89/SAWARATSUKI.ServiceLogos/blob/main/Gitlab/Gitlab.png?raw=true\"); padding: 48px 85px 0px 0px; background-size: contain; background-repeat: no-repeat; background-position: center;}"
+   },
+   "^https?://(?:.*.)?(gnu.org)(/.*)?$":{
+      "name":"GNU Emacs",
+      "css":".logo > h1 {display: none !important;} .logo > a > img {background-image: url(\"https://github.com/jonacruz89/SAWARATSUKI.ServiceLogos/blob/main/Gnuemacs/GNUEmacs.png?raw=true\"); padding: 250px 300px 0px 0px; background-size: contain; width:0px; height: 0px; background-repeat: no-repeat; background-position: center;}"
+   },
+   "^https?://(?:.*.)?(go.dev)(/.*)?$":{
+      "name":"Go",
+      "css":"@media only screen and (min-width : 1024px) { img.Learn-heroGopher, .Learn-heroGopher > img {background-image: url(\"https://github.com/jonacruz89/SAWARATSUKI.ServiceLogos/blob/main/Go/Golang.png?raw=true\"); padding: 500px 450px 0px 0px; background-size: contain; width:0px; height: 0px; background-repeat: no-repeat; background-position: center;} }"
+   },
+   "^https?://(?:.*.)?(haskell.org)(/.*)?$":{
+      "name":"Haskell",
+      "css": ".branding > h4.summary {display: none;} .branding > img.img-responsive {background-image: url(\"https://github.com/jonacruz89/SAWARATSUKI.ServiceLogos/blob/main/Haskell/Haskell.png?raw=true\"); padding: 320px 0px 0px 0px; background-size:contain; width: 100%; height: 0px; background-repeat: no-repeat; background-position: bottom; margin-top: -100px}"
+   },
+   "^https?://(?:.*.)?(hono.dev)(/.*)?$":{
+      "name":"Hono",
+      "css": ".VPImage.image-src {background-image: url(\"/images/hono-kawaii.png\"); padding: 500px 350px 0px 0px; background-size:contain; width: 100%; height: 0px; background-repeat: no-repeat; background-position: bottom; margin-top: -100px}"
+   },
+   "^https?://(?:.*.)?(java.com)(/.*)?$":{
+      "name":"Java",
+      "css": "div#navbar-logo {background-position-y: 0; background-image: url(\"https://github.com/jonacruz89/SAWARATSUKI.ServiceLogos/blob/main/Java/Java.png?raw=true\") !important;}"
+   },
+   "^https?://(?:.*.)?(juniper.net)(/.*)?$":{
+      "name":"Juniper Networks",
+      "css": ".footer__container__top__logo > a > img {padding: 150px 250px 0px 0px !important;} #mcxLogos > img, .footer__container__top__logo > a > img, .logo.navbar-brand > img.js-navbar-logo.preload-responsive-image {background-image: url(\"https://github.com/jonacruz89/SAWARATSUKI.ServiceLogos/blob/main/Juniper/Juniper.png?raw=true\"); padding: 100px 150px 0px 0px; background-size:contain; width: 100%; height: 0px; background-repeat: no-repeat; background-position: bottom;}"
+   },
+   "^https?://(?:.*.)?(kotlinlang.org)(/.*)?$":{
+      "name":"Kotlin",
+      "css": ".hero_grid__H0SX3 > img {background-image: url(\"https://github.com/jonacruz89/SAWARATSUKI.ServiceLogos/blob/main/Kotlin/Kotlin.png?raw=true\"); padding: 560px 560px 0px 0px; background-size:contain; width: 100%; height: 0px; background-repeat: no-repeat; background-position: bottom;}"
+   },
+   "^https?://(?:.*.)?(laravel.com)(/.*)?$":{
+      "name":"Kotlin",
+      "css": ".flex-1 > .inline-flex > .w-12 {display:none;} .flex-1 > .inline-flex > .ml-5 {background-image: url(\"https://github.com/jonacruz89/SAWARATSUKI.ServiceLogos/blob/main/Laravel/Laravel.png?raw=true\"); padding: 70px 160px 0px 0px; background-size:contain; width: 100%; height: 0px; background-repeat: no-repeat; background-position: bottom;}"
+   },
+   "^https?://(?:.*.)?(mui.com)(/.*)?$":{
+      "name":"MUI: Material-UI",
+      "css":"a.MuiTypography-root > svg, .MuiContainer-root > .MuiLink-root > svg {background-image: url(\"https://github.com/jonacruz89/SAWARATSUKI.ServiceLogos/blob/main/Mui/Mui.png?raw=true\"); padding: 40px 85px 0px 0px; background-size: contain; background-repeat: no-repeat; background-position: center;}"
+   },
+   "^https?://(?:.*.)?(nodejs.org)(/.*)?$":{
+      "name":"Node.js",
+      "css":".NavBar_nodeIconAndMobileItemsToggler__SAX1i > a.NavBar_nodeIconWrapper__tDLur > svg {background-image: url(\"https://github.com/jonacruz89/SAWARATSUKI.ServiceLogos/blob/main/Node.js/Node.js.png?raw=true\"); padding: 40px 85px 0px 0px; background-size: contain; background-repeat: no-repeat; background-position: center;}"
+   },
+    "^https?://(?:.*.)?(react.dev)(/.*)?$":{
        "name":"ReactJS",
        "css":".uwu-visible { display: flex } .uwu-hidden { display: none }"
-    },
-    "(.*).haskell.org":{
-       "name":"Haskell",
-       "replaceImageUrl":[
-          {
-             "replace":"https://www.haskell.org/img/haskell-logo.svg",
-             "with":"https://github.com/jonacruz89/SAWARATSUKI.ServiceLogos/blob/main/Haskell/Haskell.png?raw=true"
-          }
-       ]
     }
  }

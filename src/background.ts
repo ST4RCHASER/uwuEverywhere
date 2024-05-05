@@ -1,5 +1,6 @@
-import { makeRedirectRule } from "./rules";
+// import { makeRedirectRule } from "./rules.ts-bak";
 import { uwuConfig, uwuLogoNodes } from "./types";
+import cfg from "../resources/logos.json";
 
 const setDefaultConfig = () => {
   chrome.storage.local.get("uwuConfig", (data) => {
@@ -21,6 +22,8 @@ const setDefaultConfig = () => {
 };
 
 const doUpdateLogos = () => {
+  console.log("[uwuEverywhere] Updating logos", cfg);
+  return saveLogosConfig(cfg as unknown as uwuLogoNodes);
   fetch(
     "https://github.com/ST4RCHASER/uwuEverywhere/blob/main/resources/logos.json?raw=true",
   )
@@ -74,24 +77,24 @@ chrome.management.onEnabled.addListener(() => {
 });
 
 // Request edit
-export const updateInterceptor = async (config?: uwuConfig) => {
-  chrome.declarativeNetRequest.updateDynamicRules({
-    removeRuleIds: await chrome.declarativeNetRequest
-      .getDynamicRules()
-      .then((rules) =>
-        rules
-          .filter(
-            (rule) =>
-              rule.priority === 1 &&
-              (rule.action.type ===
-                chrome.declarativeNetRequest.RuleActionType.REDIRECT ||
-                rule.action.type ===
-                  chrome.declarativeNetRequest.RuleActionType.MODIFY_HEADERS) &&
-              rule.id >= 150000,
-          )
-          .map((rule) => rule.id),
-      ),
-    addRules: await makeRedirectRule(config),
-  });
-};
-updateInterceptor();
+// export const updateInterceptor = async (config?: uwuConfig) => {
+//   chrome.declarativeNetRequest.updateDynamicRules({
+//     removeRuleIds: await chrome.declarativeNetRequest
+//       .getDynamicRules()
+//       .then((rules) =>
+//         rules
+//           .filter(
+//             (rule) =>
+//               rule.priority === 1 &&
+//               (rule.action.type ===
+//                 chrome.declarativeNetRequest.RuleActionType.REDIRECT ||
+//                 rule.action.type ===
+//                   chrome.declarativeNetRequest.RuleActionType.MODIFY_HEADERS) &&
+//               rule.id >= 150000,
+//           )
+//           .map((rule) => rule.id),
+//       ),
+//     addRules: await makeRedirectRule(config),
+//   });
+// };
+// updateInterceptor();
